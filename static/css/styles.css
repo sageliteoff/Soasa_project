@@ -1,0 +1,48 @@
+/* Index page style */
+
+.bg1{
+    background-image: url("/static/img/bg1.jpg");
+    background-color: #659DBD;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.intro{
+    min-height: 550px;
+}
+
+.intro-text-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.intro-text{
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 42px;
+    margin-top: 60px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+}
+body {
+    background: none;
+}
+ul li a {
+    text-decoration: none;
+}
+div a {
+    text-decoration: none;
+}

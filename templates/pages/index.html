@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+   <div class="intro bg1"> 
+        {% include 'nav.html' %}
+        <hr>
+        <div class="intro-text-container">
+            <h2 class="intro-text">
+                Full meaning of Soasa goes here
+            </h2>
+            <h3 class="text-center">
+                The best school of social science 
+            </h3>
+        </div>
+   </div>
+   
+    <div class="container">
+        <h2 class="text-center mt-4">Executives</h2>
+        <div class="row">
+            {% if members %}
+                {% for member in members %}
+                <div class="col-md-4 mt-5">
+                    <div class="card text-center">
+                        {% if member.photo %}
+                            <a href="{% url 'member' member.id %}" style="margin-top: -25px;"><img src="{% static 'img/avatar.png' %}"  alt="Member Photo" width="100" class="rounded-circle"></a>
+                         {% endif %}
+                        <div class="card-body pt-3">
+                            <h5 style="text-transform: uppercase; margin-bottom:0;">{{member.name}}</h5>
+                            {% if member.description %}
+                                <h6 style="font-style: italic; color: #aaa">{{member.description}}</h6>
+                            {% endif %}
+                            
+                            <div class="card-text text-center py-2"  style="color: #888">
+                                A small description about the member. Must be at least 3 sentense.
+                                A small description about the member. Must be at least 3 sentense.
+                            </div>  
+                             <a href="{% url 'member' member.id %}"  class="btn btn-success" style="font-size: smaller;">READ MORE</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+                
+            {% endif %}
+        </div>
+
+        <div class="row mt-3">
+            <div class="col text-center">
+                <a class="btn btn-secondary" href="{% url 'all_members' %}">View more members</a>
+            </div>
+        </div>
+       
+
+        <h3>Courses</h3>
+
+        <div class="row">
+            {% if courses %}
+                {% for course in courses %}
+                    <div class="card" style="width: 15rem; padding: 5px; text-align: center; margin:5px; border-radius:20px;">
+                                
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'course' course.id %}">{{course.name}}</a></h5>
+                            <p class="card-text"><a href="{% url 'course' course.id %}">{{course.course_code}}</a></p>
+    
+                            <a href="{% url 'course' course.id %}" class="btn btn-success">View course details</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+        </div>
+        <button><a href="{% url 'courses_all' %}">View more courses</a></button>
+    </div>
+
+
+{% endblock %}
